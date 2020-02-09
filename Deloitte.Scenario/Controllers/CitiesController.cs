@@ -58,7 +58,7 @@ namespace Deloitte.Scenario.Api.Controllers
 
             var response = await _serviceCore.UpdateCityAsync(id, cityUpdate);
 
-            return Ok($"{id} updated");
+            return Ok();
         }
 
         // DELETE api/cities/1
@@ -70,7 +70,7 @@ namespace Deloitte.Scenario.Api.Controllers
 
             var response = await _serviceCore.DeleteCityAsync(id);
 
-            return Ok($"{id} Deleted");
+            return Ok();
         }
     }
 }
