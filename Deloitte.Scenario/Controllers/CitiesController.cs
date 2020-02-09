@@ -24,13 +24,14 @@ namespace Deloitte.Scenario.Api.Controllers
         //GET api/cities/cardiff
         [HttpGet]
         [Route("{name}")]
-        public async Task<ActionResult<string>> GetCity(string name)
+        public async Task<ActionResult> GetCity(string name)
         {
             var response = await _serviceCore.GetCityByNameAsync(name);
 
-            return response == null || response.Count() == 0
-                        ? NotFound(name)
-                        : (ActionResult<string>)Ok(response);
+            if (response == null || response.Count() == 0)
+                return NotFound(name);
+            else 
+                return Ok(response);
         }
 
         //POST api/cities/cardiff
